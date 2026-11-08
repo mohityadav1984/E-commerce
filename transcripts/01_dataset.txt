@@ -1,0 +1,12 @@
+seed=7 orders=60
+category weights: {'Apparel': 0.25, 'Electronics': 0.2, 'Home': 0.15, 'Footwear': 0.2, 'Beauty': 0.2}
+status weights  : {'Placed': 0.15, 'Shipped': 0.2, 'Delivered': 0.45, 'Returned': 0.12, 'Refunded': 0.08}
+amount range    : INR 199-14999 (log-uniform)
+count per category: {'Apparel': 20, 'Home': 10, 'Electronics': 7, 'Beauty': 11, 'Footwear': 12}
+count per status  : {'Shipped': 10, 'Placed': 12, 'Delivered': 28, 'Refunded': 7, 'Returned': 3}
+delayed_shipment %: 21.7
+problems: none
+first 3 records:
+   {'record_id': 'NYK-0001', 'category': 'Apparel', 'status': 'Shipped', 'order_value_inr': 3319, 'days_since_created': 2, 'delayed_shipment': False}
+   {'record_id': 'NYK-0002', 'category': 'Home', 'status': 'Placed', 'order_value_inr': 10159, 'days_since_created': 6, 'delayed_shipment': False}
+   {'record_id': 'NYK-0003', 'category': 'Electronics', 'status': 'Placed', 'order_value_inr': 269, 'days_since_created': 2, 'delayed_shipment': False}

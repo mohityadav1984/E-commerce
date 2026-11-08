@@ -1,0 +1,78 @@
+agents: ['Retrieval Agent', 'Lookup Agent', 'Response Composer']
+tools per agent: {'Retrieval Agent': ['rag_lookup'], 'Lookup Agent': ['check_order_status'], 'Response Composer': []}
+escalation threshold=0.92 (p80 of days_since_created = 24.2)
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3011.20it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+
+--- POLICY ONLY  -> expect rag_lookup
+Q: How many days do I have to return a face serum?
+tool calls this run: {'rag_lookup': 1}
+schema valid (CrewAnswer): True
+draft answer: {
+  "answer": "Beauty products can be returned within 7 days of delivery, and only if the seal is unbroken.",
+  "sources": [
+    "01_return_window"
+  ],
+  "order": null,
+  "grounded": true,
+  "refused": false,
+  "escalate": false,
+  "confidence": 0.504
+}
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+
+--- ORDER ONLY   -> expect check_order_status
+Q: What is the status of order NYK-0054?
+tool calls this run: {'check_order_status': 1}
+schema valid (CrewAnswer): True
+draft answer: {
+  "answer": "Order NYK-0054 is currently Refunded with an order value of INR 1939. This order looks delayed and is being flagged for escalation to a Level 2 team lead.",
+  "sources": [],
+  "order": {
+    "record_id": "NYK-0054",
+    "found": true,
+    "status": "Refunded",
+    "order_value_inr": 1939,
+    "escalation_score": 0.987,
+    "recommend_escalation": true
+  },
+  "grounded": true,
+  "refused": false,
+  "escalate": true,
+  "confidence": 0.99
+}
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+
+--- BOTH         -> expect both tools
+Q: Order NYK-0003 is placed; can I cancel it for free?
+tool calls this run: {'rag_lookup': 1, 'check_order_status': 1}
+schema valid (CrewAnswer): True
+draft answer: {
+  "answer": "An order can be cancelled for free while its status is Placed. Order NYK-0003 is currently Placed with an order value of INR 269.",
+  "sources": [
+    "06_cancellation"
+  ],
+  "order": {
+    "record_id": "NYK-0003",
+    "found": true,
+    "status": "Placed",
+    "order_value_inr": 269,
+    "escalation_score": 0.027,
+    "recommend_escalation": false
+  },
+  "grounded": true,
+  "refused": false,
+  "escalate": false,
+  "confidence": 0.99
+}
+
+cumulative TOOL_CALLS: {'rag_lookup': 2, 'check_order_status': 2}

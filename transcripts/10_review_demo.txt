@@ -1,0 +1,20 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2454.47it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+=== CASE 1: faithful draft -> expect APPROVED unchanged
+DRAFT : Beauty products can be returned within 7 days of delivery, and only if the seal is unbroken.
+   Policy_Compliance_Reviewer: REVIEW: All sentences are supported by the context.
+unsupported_sentences=[]
+
+   Final_Editor: {"approved":true,"final_answer":"Beauty products can be returned within 7 days of delivery, and only if the seal is unbroken.","reason":"Every sentence is supported by the retrieved context; draft approved unchanged."}
+VERDICT: {'approved': True, 'final_answer': 'Beauty products can be returned within 7 days of delivery, and only if the seal is unbroken.', 'reason': 'Every sentence is supported by the retrieved context; draft approved unchanged.'}
+  unchanged? True
+
+=== CASE 2: draft with injected ungrounded claim -> expect REVISED
+DRAFT : Beauty products can be returned within 7 days of delivery, and only if the seal is unbroken. Nykaa also gives a free gold coin with every return.
+   Policy_Compliance_Reviewer: REVIEW: 1 sentence(s) are NOT supported by the retrieved context.
+unsupported_sentences=["Nykaa also gives a free gold coin with every return."]
+
+   Final_Editor: {"approved":false,"final_answer":"Beauty products can be returned within 7 days of delivery, and only if the seal is unbroken.","reason":"Removed 1 ungrounded sentence(s): [\"Nykaa also gives a free gold coin with every return.\"]"}
+VERDICT: {'approved': False, 'final_answer': 'Beauty products can be returned within 7 days of delivery, and only if the seal is unbroken.', 'reason': 'Removed 1 ungrounded sentence(s): ["Nykaa also gives a free gold coin with every return."]'}
+  unchanged? False

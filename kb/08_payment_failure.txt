@@ -1,0 +1,1 @@
+Payment-Failure and Retry Policy. If a payment fails but the amount is debited, the bank reverses it automatically within 5 to 7 working days. Customers can retry payment from the Orders page for up to 30 minutes before the cart is released. After 3 failed attempts on one card, we suggest switching to UPI or net banking. Orders are confirmed only when the payment is successful.

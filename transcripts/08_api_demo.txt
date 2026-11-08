@@ -1,0 +1,49 @@
+GET /health -> {'status': 'ok'}
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2850.69it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+C:\Users\mohit\git\nykaa\nykaa-support-agent\nykaa_agent\pipeline.py:45: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
+  self.chat = memory.build_chat_runnable(self._turn)
+C:\Users\mohit\git\nykaa\nykaa-support-agent\nykaa_agent\memory.py:21: LangChainDeprecationWarning: The class `InMemoryChatMessageHistory` was deprecated in LangChain 1.6.4 and will be removed in 2.0.0 See the short-term memory documentation for recommended alternatives: https://docs.langchain.com/oss/python/langchain/short-term-memory
+  _STORE[session_id] = InMemoryChatMessageHistory()
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+POST /ask -> 200 {
+  "answer": "Tier-2 and Tier-3 cities take 4 to 7 days, and remote pin codes can take up to 10 days.",
+  "sources": [
+    "03_delivery_sla",
+    "04_reverse_pickup"
+  ],
+  "grounded": true,
+  "trace_id": "f28acb1237b24a21b5594e7e6d62f4ba"
+}
+POST /add-document -> 200 {'trace_id': 'c57e9a4634bb45ff8073ff50f4334d85', 'doc_id': '13_gift_wrapping', 'chunks_indexed': {'fixed': 1, 'sentence': 4}}
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+POST /ask (new doc) -> Nykaa offers gift wrapping on all Beauty orders for INR 49 per item. Gift-wrapped orders cannot be partially returned. | sources: ['13_gift_wrapping']
+POST /ask (oversized) -> 413 {'detail': 'budget_exceeded: estimated 4250 tokens exceeds per-request cap of 2000'}
+
+WebSocket multi-turn, then abrupt disconnect:
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+  USER: What is the status of order NYK-0054?
+  AGENT: Order NYK-0054 is currently Refunded with an order value of INR 1939. This order looks delayed and is being flagged for escalation to a Level 2 team lead.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+  USER: Is it eligible for a return?
+  AGENT: Order NYK-0054 is currently Refunded with an order value of INR 1939. This order looks delayed and is being flagged for escalation to a Level 2 team lead. I don't have information on that in our policy knowledge base, so I've created ticket TKT-AAAE4B38 and escalated it to a Level 2 (team lead) support agent.
+after disconnect, server still healthy: {'status': 'ok'}
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+  new client served: Once an order is Shipped it cannot be cancelled, but the customer can refuse del ...
+
+9 new JSON-Lines log entries; sample:
+  {"ts": "2026-11-08T11:13:35.719627+00:00", "trace_id": "f28acb1237b24a21b5594e7e6d62f4ba", "endpoint": "POST /ask", "session_id": "api-1", "question": "How long does delivery take to a remote pin code?", "guardrails_fired": [], "status": "ok", "duration_ms": 439.7, "cache_hit": false, "tool_calls": {"rag_lookup": 1}, "estimated_tokens": 1263, "review_approved": true}
+  {"ts": "2026-11-08T11:13:35.885085+00:00", "trace_id": "c57e9a4634bb45ff8073ff50f4334d85", "endpoint": "POST /add-document", "doc_id": "13_gift_wrapping", "status": "ok", "chunks_indexed": {"fixed": 1, "sentence": 4}}
+  {"ts": "2026-11-08T11:13:36.192735+00:00", "trace_id": "bff84c43a0a34ff3ba2839cd55798c2e", "endpoint": "POST /ask", "session_id": "api-1", "question": "How much does gift wrapping cost?", "guardrails_fired": [], "status": "ok", "duration_ms": 301.33, "cache_hit": false, "tool_calls": {"rag_lookup": 1}, "estimated_tokens": 1259, "review_approved": true}

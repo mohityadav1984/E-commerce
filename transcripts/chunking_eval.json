@@ -1,0 +1,13 @@
+{
+  "fixed": {
+    "precision": 0.5476,
+    "recall": 1.0,
+    "f1": 0.7077
+  },
+  "sentence": {
+    "precision": 0.7143,
+    "recall": 1.0,
+    "f1": 0.8333
+  },
+  "recommended": "sentence"
+}

@@ -1,0 +1,20 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3068.41it/s]
+=== grounded-generation cache (direct) ===
+1st call (miss)                                         cache_hit=False    15.53 ms  retrieval 0->1  generation 0->1
+2nd call, identical (hit)                               cache_hit=True      0.99 ms  retrieval 1->1  generation 1->1
+3rd call, different case/spacing/punctuation (hit)      cache_hit=True      0.89 ms  retrieval 1->1  generation 1->1
+cache hits/misses: 2 / 1
+
+=== through the full crew ===
+C:\Users\mohit\git\nykaa\nykaa-support-agent\nykaa_agent\pipeline.py:45: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
+  self.chat = memory.build_chat_runnable(self._turn)
+C:\Users\mohit\git\nykaa\nykaa-support-agent\nykaa_agent\memory.py:21: LangChainDeprecationWarning: The class `InMemoryChatMessageHistory` was deprecated in LangChain 1.6.4 and will be removed in 2.0.0 See the short-term memory documentation for recommended alternatives: https://docs.langchain.com/oss/python/langchain/short-term-memory
+  _STORE[session_id] = InMemoryChatMessageHistory()
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+request 1: cache_hit=False duration=275.46 ms  retrieval +1, generation +1
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+request 2: cache_hit=True duration=151.03 ms  retrieval +0, generation +0

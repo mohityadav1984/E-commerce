@@ -1,0 +1,35 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3820.69it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+active strategy: sentence
+
+Q: How many days do I have to return a lipstick?
+   grounded=True top_score=0.6537 threshold=0.3197 sources=['01_return_window', '08_payment_failure']
+   A: Beauty products can be returned within 7 days of delivery, and only if the seal is unbroken.
+
+Q: When will my COD refund reach my bank account?
+   grounded=True top_score=0.7085 threshold=0.3197 sources=['02_cod_refund', '06_cancellation']
+   A: Cancelling a COD order has no refund step because no money was collected. Prepaid cancellations are refunded to the original payment method within 5 to 7 working days.
+
+Q: How long does delivery take to a remote pin code?
+   grounded=True top_score=0.7076 threshold=0.3197 sources=['03_delivery_sla', '04_reverse_pickup']
+   A: Tier-2 and Tier-3 cities take 4 to 7 days, and remote pin codes can take up to 10 days.
+
+Q: Can I return or exchange my sneakers if the size is wrong?
+   grounded=True top_score=0.6145 threshold=0.3197 sources=['09_size_exchange', '01_return_window']
+   A: Apparel and Footwear can be exchanged once for a different size within 15 days of delivery. Apparel and Footwear can be returned within 15 days, provided tags are attached and the item is unworn.
+
+Q: What should I do if my item arrived damaged?
+   grounded=True top_score=0.6107 threshold=0.3197 sources=['10_damaged_item', '01_return_window']
+   A: If an item arrives damaged, defective or wrong, the customer must raise a claim within 48 hours of delivery.
+
+Q: How do I redeem my reward points at checkout?
+   grounded=True top_score=0.7676 threshold=0.3197 sources=['07_loyalty_points']
+   A: Points can be redeemed at checkout, where 1 point equals INR 1.
+
+Q: Can I cancel an order that has already been shipped?
+   grounded=True top_score=0.7651 threshold=0.3197 sources=['06_cancellation']
+   A: Once an order is Shipped it cannot be cancelled, but the customer can refuse delivery or return it after delivery.
+
+[OUT-OF-SCOPE] Q: Who is the prime minister of Canada?
+   grounded=False top_score=0.1259 threshold=0.3197
+   A: I don't know based on the Nykaa support knowledge base. I can connect you with a human support agent if you'd like.

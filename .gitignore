@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+.chroma/
+logs/*.jsonl
+*.pyc
+.pytest_cache/

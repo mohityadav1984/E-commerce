@@ -1,0 +1,29 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2044.61it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+indexed chunks: {'fixed': 24, 'sentence': 60}
+
+=== fixed collection: top-1 cosine similarity ===
+  IN   0.5098  Can I return a face cream after 5 days?
+  IN   0.6714  How long will a refund take for cash on delivery orders?
+  IN   0.5833  What happens if my payment fails but money is deducted?
+  IN   0.5879  Who do I escalate to if my complaint is not resolved?
+  IN   0.4753  Does my laptop come with a warranty?
+  OUT  0.0312  What is the capital of France?
+  OUT  0.1074  Who won the last cricket world cup?
+  OUT  0.0943  Give me a recipe for chocolate cake.
+  OUT  0.0723  How do I train a neural network?
+  lowest in-scope=0.4753  highest out-of-scope=0.1074  -> threshold=0.2913
+
+=== sentence collection: top-1 cosine similarity ===
+  IN   0.5687  Can I return a face cream after 5 days?
+  IN   0.6468  How long will a refund take for cash on delivery orders?
+  IN   0.6549  What happens if my payment fails but money is deducted?
+  IN   0.4965  Who do I escalate to if my complaint is not resolved?
+  IN   0.5488  Does my laptop come with a warranty?
+  OUT  0.1429  What is the capital of France?
+  OUT  0.1106  Who won the last cricket world cup?
+  OUT  0.1111  Give me a recipe for chocolate cake.
+  OUT  0.0903  How do I train a neural network?
+  lowest in-scope=0.4965  highest out-of-scope=0.1429  -> threshold=0.3197
+
+wrote C:\Users\mohit\git\nykaa\nykaa-support-agent\calibration.json

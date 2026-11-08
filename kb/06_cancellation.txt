@@ -1,0 +1,1 @@
+Order Cancellation Policy. An order can be cancelled for free while its status is Placed. Once an order is Shipped it cannot be cancelled, but the customer can refuse delivery or return it after delivery. Prepaid cancellations are refunded to the original payment method within 5 to 7 working days. Cancelling a COD order has no refund step because no money was collected.

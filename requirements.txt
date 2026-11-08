@@ -1,0 +1,12 @@
+# Pin to the versions you actually ran; these lower bounds are what the code was written against.
+crewai>=0.150
+chromadb>=0.5
+sentence-transformers>=3.0
+langchain-core>=0.3
+fastapi>=0.110
+uvicorn>=0.29
+httpx>=0.27            # required by fastapi.testclient
+pydantic>=2.6
+autogen-agentchat>=0.4
+autogen-core>=0.4
+pytest>=8

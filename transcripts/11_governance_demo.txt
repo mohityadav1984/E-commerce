@@ -1,0 +1,23 @@
+=== Application layer: least autonomy ===
+wiring of the real crew: {'Retrieval Agent': ['rag_lookup'], 'Lookup Agent': ['check_order_status'], 'Response Composer': []}
+BLOCKED  -> 'Retrieval Agent' is not allowed to use 'check_order_status' (allowed: ['Lookup Agent'])
+BLOCKED  -> 'Response Composer' is not allowed to use 'check_order_status' (allowed: ['Lookup Agent'])
+
+Guard: governance.TOOL_ALLOWLIST maps check_order_status to {'Lookup Agent'}. Every
+tool handed to an agent passes through crew._wire() -> authorize_tool(), which raises
+LeastAutonomyViolation for any other role, and audit_crew_wiring() re-checks the built
+crew. The restriction is therefore enforced when the crew is constructed, not by prompt
+instructions an agent could ignore.
+
+=== Application layer: risk classification ===
+RISK LEVEL: Medium 
+The agent is a customer-support assistant, which the Low/Medium/High scheme places in Medium (customer support tickets). It reads order status and order value, which touches transactional but not medical, hiring or financial-account data, so it is not High. It is above Low because a wrong answer can mislead a customer about refunds or returns, which is why it uses grounded retrieval, a refusal threshold, PII masking, an independent review stage, and has no write access to any order.
+
+=== Runtime layer: per-request token budget ===
+normal request  -> 1262 tokens (OK)
+oversized (direct) -> REJECTED: estimated 3550 tokens exceeds per-request cap of 2000
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2420.38it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+C:\Users\mohit\git\nykaa\nykaa-support-agent\nykaa_agent\pipeline.py:45: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
+  self.chat = memory.build_chat_runnable(self._turn)
+oversized (full pipeline) -> REJECTED before any crew/LLM call: estimated 3550 tokens exceeds per-request cap of 2000

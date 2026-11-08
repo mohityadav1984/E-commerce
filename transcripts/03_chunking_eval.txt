@@ -1,0 +1,53 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2673.86it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+=== fixed collection (top-3 chunks -> dedup to parent docs) ===
+Q: How many days do I have to return a lipstick?
+   retrieved docs=['01_return_window', '08_payment_failure']  gold=['01_return_window']  TP=1
+   precision=1/2=0.500  recall=1/1=1.000
+Q: When will my COD refund reach my bank account?
+   retrieved docs=['02_cod_refund', '06_cancellation', '09_size_exchange']  gold=['02_cod_refund']  TP=1
+   precision=1/3=0.333  recall=1/1=1.000
+Q: How long does delivery take to a remote pin code?
+   retrieved docs=['03_delivery_sla', '04_reverse_pickup']  gold=['03_delivery_sla']  TP=1
+   precision=1/2=0.500  recall=1/1=1.000
+Q: Can I return or exchange my sneakers if the size is wrong?
+   retrieved docs=['09_size_exchange', '01_return_window']  gold=['01_return_window', '09_size_exchange']  TP=2
+   precision=2/2=1.000  recall=2/2=1.000
+Q: What should I do if my item arrived damaged?
+   retrieved docs=['10_damaged_item', '05_warranty']  gold=['10_damaged_item']  TP=1
+   precision=1/2=0.500  recall=1/1=1.000
+Q: How do I redeem my reward points at checkout?
+   retrieved docs=['07_loyalty_points', '09_size_exchange']  gold=['07_loyalty_points']  TP=1
+   precision=1/2=0.500  recall=1/1=1.000
+Q: Can I cancel an order that has already been shipped?
+   retrieved docs=['06_cancellation', '09_size_exchange']  gold=['06_cancellation']  TP=1
+   precision=1/2=0.500  recall=1/1=1.000
+MEAN precision=3.833/7=0.548  recall=7.000/7=1.000  F1=0.708
+
+=== sentence collection (top-3 chunks -> dedup to parent docs) ===
+Q: How many days do I have to return a lipstick?
+   retrieved docs=['01_return_window', '08_payment_failure']  gold=['01_return_window']  TP=1
+   precision=1/2=0.500  recall=1/1=1.000
+Q: When will my COD refund reach my bank account?
+   retrieved docs=['02_cod_refund', '06_cancellation']  gold=['02_cod_refund']  TP=1
+   precision=1/2=0.500  recall=1/1=1.000
+Q: How long does delivery take to a remote pin code?
+   retrieved docs=['03_delivery_sla', '04_reverse_pickup']  gold=['03_delivery_sla']  TP=1
+   precision=1/2=0.500  recall=1/1=1.000
+Q: Can I return or exchange my sneakers if the size is wrong?
+   retrieved docs=['09_size_exchange', '01_return_window']  gold=['01_return_window', '09_size_exchange']  TP=2
+   precision=2/2=1.000  recall=2/2=1.000
+Q: What should I do if my item arrived damaged?
+   retrieved docs=['10_damaged_item', '01_return_window']  gold=['10_damaged_item']  TP=1
+   precision=1/2=0.500  recall=1/1=1.000
+Q: How do I redeem my reward points at checkout?
+   retrieved docs=['07_loyalty_points']  gold=['07_loyalty_points']  TP=1
+   precision=1/1=1.000  recall=1/1=1.000
+Q: Can I cancel an order that has already been shipped?
+   retrieved docs=['06_cancellation']  gold=['06_cancellation']  TP=1
+   precision=1/1=1.000  recall=1/1=1.000
+MEAN precision=5.000/7=0.714  recall=7.000/7=1.000  F1=0.833
+
+RECOMMENDATION (auto-drafted from my numbers; rewrite in your own words in README):
+I would deploy the sentence collection: mean precision 0.7143 / recall 1.0 (F1 0.8333) versus 0.5476 / 1.0 (F1 0.7077) for fixed chunks.

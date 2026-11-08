@@ -1,0 +1,45 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 4897.28it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+C:\Users\mohit\git\nykaa\nykaa-support-agent\nykaa_agent\pipeline.py:45: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
+  self.chat = memory.build_chat_runnable(self._turn)
+=== TRANSCRIPT 1: multi-turn, state CARRIED across turns (session demo-A) ===
+C:\Users\mohit\git\nykaa\nykaa-support-agent\nykaa_agent\memory.py:21: LangChainDeprecationWarning: The class `InMemoryChatMessageHistory` was deprecated in LangChain 1.6.4 and will be removed in 2.0.0 See the short-term memory documentation for recommended alternatives: https://docs.langchain.com/oss/python/langchain/short-term-memory
+  _STORE[session_id] = InMemoryChatMessageHistory()
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+
+USER: What is the status of order NYK-0054?
+  resolved_question: None
+  order: {'record_id': 'NYK-0054', 'found': True, 'status': 'Refunded', 'order_value_inr': 1939, 'escalation_score': 0.987, 'recommend_escalation': True}
+  AGENT: Order NYK-0054 is currently Refunded with an order value of INR 1939. This order looks delayed and is being flagged for escalation to a Level 2 team lead.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-lookup': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+
+USER: Is it eligible for a return?
+  resolved_question: Is it eligible for a return? (regarding order NYK-0054)
+  order: {'record_id': 'NYK-0054', 'found': True, 'status': 'Refunded', 'order_value_inr': 1939, 'escalation_score': 0.987, 'recommend_escalation': True}
+  AGENT: Order NYK-0054 is currently Refunded with an order value of INR 1939. This order looks delayed and is being flagged for escalation to a Level 2 team lead. I don't have information on that in our policy knowledge base, so I've created ticket TKT-B2304076 and escalated it to a Level 2 (team lead) support agent.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+
+USER: And what is the refund timeline for COD?
+  resolved_question: None
+  order: None
+  AGENT: Cancelling a COD order has no refund step because no money was collected.
+
+stored messages in demo-A: 6
+
+=== TRANSCRIPT 2: FRESH conversation, same follow-up, state ABSENT (session fresh-B) ===
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-retrieval': assuming one token per four characters because a native token count is unavailable.
+Using an approximate input token count for model 'mock-llm-composer': assuming one token per four characters because a native token count is unavailable.
+USER: Is it eligible for a return?
+  resolved_question: None (None = nothing carried over)
+  order: None
+  AGENT: I don't know based on the Nykaa support knowledge base. I can connect you with a human support agent if you'd like.
+stored messages in fresh-B: 2
