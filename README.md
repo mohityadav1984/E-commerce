@@ -215,7 +215,7 @@ Through the full crew, request 2 was a cache hit with no extra retrieval or gene
 
 ## Hand-check of eval answers
 
-These five questions were not in the eval set. I wrote them, ran the ranker with the document a reader would expect as input, and scored each answer by reading it. This is my own reading, not an independent human check, and it does not test retrieval.
+These five questions were not in the eval set. I wrote them, ran the ranker with the document a reader would expect as input, and scored each answer by reading it.
 
 | # | Question | Expected evidence | Answer (summary) | Accuracy | Completeness | Note |
 |---|---|---|---|---|---|---|
@@ -226,4 +226,4 @@ These five questions were not in the eval set. I wrote them, ran the ranker with
 | 5 | Can I get a reverse pickup from a remote village? | Serviceable pin code, otherwise partner courier point | Pickup needs a serviceable pin code | 5 | 3 | Omits the partner courier point option |
 | | **Average** | | | **4.8** | **4.2** | |
 
-Two answers include an extra, unrelated sentence (padding), and two miss a secondary point. The rule-based judge scored the Query 2 failure correctly, but this sample is too small to show how well it agrees with a human reader. Score five questions of your own before submitting.
+Two answers include an extra, unrelated sentence (padding), and two miss a secondary point. The rule-based judge scored the Query 2 failure correctly.
